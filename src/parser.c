@@ -93,8 +93,15 @@ int tokenize(char * str, char * tokens[], size_t max){
 	//int i = 0;
 	
 	while(argv_ind < max){
+
+		printf("debut du while\n");
+
 		tokens[argv_ind]=str;
 		
+		printf("etape 1\n");
+
+		printf("etape 1 str contient : %s\n",str);
+
 		printf("dans tokenize : %s \n",tokens[argv_ind]);
 		
 		printf("str contient : %s\n",str);
@@ -106,28 +113,50 @@ int tokenize(char * str, char * tokens[], size_t max){
 			++str;
 		}
 		
-		printf("JE VEUX CETTE LIGNE");
+		printf("JE VEUX CETTE LIGNE\n");
 
 		//printf("NO hey %s\n",*str);
 		printf("NO hey%csi c\'est collé c\'est pas bien GROSTEST !\n",str[0]);
 		
-		//if (*str == '\0') {
-		if (str[0] == '\0') {
+		if (*str == '\0') {
+		//if (str[0] == '\0') {
 			printf("ya un zero");
 			tokens[argv_ind+1] = NULL;
 			return 0;
 		}
 
-		printf("C\'est pas une fin !\n");
-		
-		//if(*str==' '){
-		if(str[0]==' '){
-			printf("ya un espace");
-			str='\0';
+		printf("C\'est pas une fin du tout !\n");
+		/*
+		char testChar = str[0];
+		printf("On a recup le caractere \"%c\"\n chaussette\n",testChar);
+		printf("On a recup le caractere \"%c\"\n chaussette\n",testChar);
+		printf("On a recup le caractere \"%c\"\n chaussette\n",testChar);
+		printf("222mueazuibzebizfeiubezf\n");
+*/
+#if 1
+		if(*str == ' '){
+		//if(str[0] == ' '){
+		//if(testChar == " "){ // et là une erreur de segmentation qui sort de nulle part
+		//if(*str == ' '){
+			printf("ya un espace\n");
+			*str='\0';
 			++str;
 			++argv_ind;
 		}
-		
+#endif
+/*
+		printf("mueazuibzebizfeiubezf\n");
+
+		// test de toute facon si on est la c'est un espace
+		printf("ya un espace\n");
+		str='\0';
+		++str;
+
+		printf("etape 12000 str contient : %s\n",str);
+
+		++argv_ind;
+		printf("fin du bazar\n");
+*/
 	}
 	
 	return 0;
